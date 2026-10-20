@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Cuatrimotos ATV Rider: cargueros agrícolas, cuatrimotos y vehículos todoterreno en Colombia.">
+
+<title>Cuatrimotos ATV Rider | Tienda Oficial</title>
+
+<style>
+:root {
+    --rojo: #ed1c24;
+    --negro: #0b0b0e;
+    --panel: #19191f;
+    --blanco: #ffffff;
+    --gris: #b9b9c2;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contenedor {
+    width: 92%;
+    max-width: 1160px;
+    margin: auto;
+}
+
+header {
+    background: #101014;
+    border-bottom: 2px solid var(--rojo);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.logo span {
+    color: var(--rojo);
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a:hover {
+    color: var(--rojo);
+}
+
+.boton {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--rojo);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s;
+}
+
+.boton:hover {
+    background: #bd1017;
+    transform: translateY(-2px);
+}
+
+.boton-secundario {
+    background: transparent;
+    border: 1px solid var(--rojo);
+}
+
+.hero {
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.94), rgba(0,0,0,.65)),
+        url("images/logo-atv-rider.jpg") center/cover;
+    padding: 80px 0;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.etiqueta {
+    display: inline-block;
+    background: #301013;
+    border: 1px solid var(--rojo);
+    color: #ff666b;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(36px, 5vw, 65px);
+    line-height: 1.05;
+    margin: 20px 0;
+}
+
+h1 span {
+    color: var(--rojo);
+}
+
+.hero p {
+    color: #ddd;
+    font-size: 18px;
+}
+
+.hero-imagen {
+    background: #19191f;
+    padding: 15px;
+    border: 1px solid #444;
+    border-radius: 15px;
+}
+
+.hero-imagen img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.hero-imagen h3 {
+    margin-bottom: 5px;
+}
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.beneficio {
+    background: var(--panel);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #303037;
+}
+
+.beneficio p {
+    color: var(--gris);
+    font-size: 14px;
+}
+
+section {
+    padding: 70px 0;
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.titulo-seccion h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.titulo-seccion p {
+    color: var(--gris);
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.producto {
+    background: var(--panel);
+    border: 1px solid #303037;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.producto img {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    background: #222;
+}
+
+.producto-contenido {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.oferta {
+    background: #401015;
+    color: #ff7479;
+    padding: 5px 9px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+.producto h3 {
+    font-size: 21px;
+    margin-bottom: 5px;
+}
+
+.precio-anterior {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 15px;
+}
+
+.precio {
+    font-size: 29px;
+    font-weight: bold;
+}
+
+.especificaciones {
+    color: #ddd;
+    padding-left: 20px;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.especificaciones li {
+    margin: 7px 0;
+}
+
+.producto .boton {
+    margin-top: auto;
+}
+
+.nota {
+    color: var(--gris);
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.financiacion {
+    background: linear-gradient(135deg, #241013, #111116);
+    border-top: 1px solid #4a191d;
+    border-bottom: 1px solid #4a191d;
+}
+
+.financiacion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+.financiacion h2 {
+    font-size: 38px;
+    line-height: 1.1;
+}
+
+.financiacion p {
+    color: #ddd;
+}
+
+.datos-credito {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.dato {
+    background: #1a171a;
+    border: 1px solid #4b2528;
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.dato strong {
+    display: block;
+    font-size: 25px;
+    color: #ff555b;
+}
+
+form {
+    background: var(--panel);
+    border: 1px solid #34343b;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+form h3 {
+    margin-top: 0;
+    font-size: 23px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 13px;
+    color: #ddd;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #0d0d11;
+    border: 1px solid #45454d;
+    border-radius: 6px;
+    color: white;
+    font-size: 14px;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.ayuda {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.aviso {
+    padding: 12px;
+    background: #25252b;
+    border-radius: 7px;
+    color: #ddd;
+    font-size: 12px;
+    margin: 15px 0;
+}
+
+.nosotros-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.nosotros-grid img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+.nosotros-grid p {
+    color: #ddd;
+}
+
+.contacto {
+    background: #19191f;
+    border: 1px solid #33333a;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.contacto p {
+    color: var(--gris);
+}
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid #333;
+    color: #aaa;
+    font-size: 13px;
+    text-align: center;
+}
+
+.whatsapp-flotante {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 200;
+    background: #20bd5a;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0 5px 20px #0008;
+}
+
+@media (max-width: 850px) {
+    .hero-grid,
+    .financiacion-grid,
+    .nosotros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: center;
+        gap: 12px;
+        font-size: 13px;
+    }
+
+    .productos,
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 45px 0;
+    }
+
+    .hero-imagen img {
+        height: 230px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-completo {
+        grid-column: auto;
+    }
+
+    .contacto {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="contenedor navbar">
+        <a class="logo" href="#inicio">
+            CUATRIMOTOS<br>
+            <span>ATV RIDER</span>
+        </a>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#financiacion">Financiación</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <a class="boton" href="#catalogo">Ver vehículos</a>
+    </div>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+    <div class="contenedor hero-grid">
+
+        <div>
+            <span class="etiqueta">VEHÍCULOS TODOTERRENO · COLOMBIA</span>
+
+            <h1>
+                Potencia, calidad y
+                <span>aventura</span>
+                en cada terreno.
+            </h1>
+
+            <p>
+                Descubre nuestra línea de cargueros agrícolas y
+                cuatrimotos todoterreno. Consulta modelos, precios,
+                disponibilidad y opciones de financiación.
+            </p>
+
+            <a class="boton" href="#catalogo">Explorar catálogo</a>
+
+            <a class="boton boton-secundario"
+               href="#financiacion">
+                Solicitar financiación
+            </a>
+        </div>
+
+        <div class="hero-imagen">
+            <img src="images/carguero-6x6.jpg"
+                 alt="Carguero agrícola 6x6">
+
+            <h3>Carguero Agrícola 6×6</h3>
+
+            <p>Potencia para acompañarte en el trabajo del campo.</p>
+        </div>
+
+    </div>
+</section>
+
+<div class="contenedor beneficios">
+    <div class="beneficio">
+        <h3>🚚 Envíos nacionales</h3>
+        <p>Consulta cobertura, tiempos y costos de entrega.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>💳 Financiación</h3>
+        <p>Opción de estudio crediticio con Agricapital.</p>
+    </div>
+
+    <div class="beneficio">
+        <h3>🛞 Línea todoterreno</h3>
+        <p>Vehículos para diferentes necesidades.</p>
+    </div>
+</div>
+
+<section id="catalogo">
+    <div class="contenedor">
+
+        <div class="titulo-seccion">
+            <span class="etiqueta">NUESTROS VEHÍCULOS</span>
+            <h2>Encuentra tu próximo vehículo</h2>
+            <p>
+                Explora nuestros modelos y consulta con un asesor
+                las características, disponibilidad y condiciones.
+            </p>
+        </div>
+
+        <div class="productos">
+
+            <!-- PRODUCTO 1 -->
+            <article class="producto">
+                <img src="images/carguero-6x6.jpg"
+                     alt="Carguero agrícola 6x6">
+
+                <div class="producto-contenido">
+                    <span class="oferta">OFERTA ESPECIAL</span>
+
+                    <h3>Carguero Agrícola 6×6</h3>
+
+                    <div class="precio-anterior">$20.000.000</div>
+                    <div class="precio">$10.000.000</div>
+
+                    <ul class="especificaciones">
+                        <li>Motor monocilíndrico de 4 tiempos.</li>
+                        <li>Cilindraje: 350 cc.</li>
+                        <li>Carga máxima indicada: 2.000 kg.</li>
+                        <li>Tracción 4×2 y 4×4.</li>
+                        <li>Tolva de descarga hidráulica.</li>
+                        <li>5 cambios adelante y 1 reversa.</li>
+                        <li>Tanque de combustible de 16 litros.</li>
+                        <li>Arranque electrónico.</li>
+                    </ul>
+
+                    <a class="boton consultar"
+                       data-producto="Carguero Agrícola 6x6"
+                       href="#">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 2 -->
+            <article class="producto">
+                <img src="images/bull300.jpg"
+                     alt="Cuatrimoto agrícola Bull300">
+
+                <div class="producto-contenido">
+                    <span class="oferta">OFERTA ESPECIAL</span>
+
+                    <h3>Cuatrimoto Agrícola Bull300</h3>
+
+                    <div class="precio-anterior">$15.000.000</div>
+                    <div class="precio">$7.500.000</div>
+
+                    <ul class="especificaciones">
+                        <li>Cilindraje informado: 400 cc.</li>
+                        <li>Motor monocilíndrico de 4 tiempos.</li>
+                        <li>Refrigeración por líquido/agua.</li>
+                        <li>Carga máxima indicada: 1.500 kg.</li>
+                        <li>Encendido eléctrico.</li>
+                        <li>Tolva hidráulica.</li>
+                        <li>Winche de 15 metros.</li>
+                        <li>Frenos de disco hidráulicos en las cuatro ruedas.</li>
+                    </ul>
+
+                    <a class="boton consultar"
+                       data-producto="Cuatrimoto Agrícola Bull300"
+                       href="#">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+            <!-- PRODUCTO 3 -->
+            <article class="producto">
+                <div style="height:245px;background:#202027;display:grid;place-items:center;text-align:center;padding:20px;">
+                    <div>
+                        <div style="font-size:55px;">🛞</div>
+                        <strong>Cuatrimoto Agrícola</strong>
+                        <p>Trepador R10</p>
+                        <small>Agrega aquí la fotografía del modelo.</small>
+                    </div>
+                </div>
+
+                <div class="producto-contenido">
+                    <span class="oferta">OFERTA ESPECIAL</span>
+
+                    <h3>Cuatrimoto Agrícola Trepador R10</h3>
+
+                    <div class="precio-anterior">$12.000.000</div>
+                    <div class="precio">$6.000.000</div>
+
+                    <ul class="especificaciones">
+                        <li>Cilindrada informada: 400 cc.</li>
+                        <li>Motor monocilíndrico de 4 tiempos.</li>
+                        <li>Refrigeración líquida.</li>
+                        <li>Tracción 4×4 con bloqueo de diferencial.</li>
+                        <li>Arranque eléctrico.</li>
+                        <li>Transmisión cardánica.</li>
+                        <li>Marchas alta, baja, neutro y reversa.</li>
+                        <li>Winche de 15 metros.</li>
+                        <li>Adaptación para tolva según versión.</li>
+                    </ul>
+
+                    <a class="boton consultar"
+                       data-producto="Cuatrimoto Agrícola Trepador R10"
+                       href="#">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <p class="nota">
+            Los precios, características y ofertas deben confirmarse
+            con un asesor antes de realizar la compra.
+        </p>
+
+    </div>
+</section>
+
+<section class="financiacion" id="financiacion">
+    <div class="contenedor financiacion-grid">
+
+        <div>
+            <span class="etiqueta">OPCIONES DE FINANCIACIÓN</span>
+
+            <h2>
+                Da el siguiente paso con
+                <span style="color:#ed1c24;">ATV Rider</span>
+            </h2>
+
+            <p>
+                Contamos con una opción de financiación mediante
+                estudio crediticio con Agricapital. La aprobación
+                y las condiciones dependen de la evaluación de la entidad.
+            </p>
+
+            <div class="datos-credito">
+                <div class="dato">
+                    <strong>10%</strong>
+                    <span>Cuota inicial anunciada</span>
+                </div>
+
+                <div class="dato">
+                    <strong>6–36</strong>
+                    <span>Meses, sujeto a aprobación</span>
+                </div>
+
+                <div class="dato">
+                    <strong>Estudio</strong>
+                    <span>Evaluación crediticia</span>
+                </div>
+
+                <div class="dato">
+                    <strong>Asesoría</strong>
+                    <span>Atención personalizada</span>
+                </div>
+            </div>
+
+            <p class="nota">
+                Las tasas, cuotas, requisitos y condiciones definitivas
+                deben confirmarse con la entidad financiera.
+                La solicitud no garantiza la aprobación.
+            </p>
+        </div>
+
+        <form id="formularioCredito">
+            <h3>Solicita información</h3>
+
+            <p class="ayuda">
+                Completa los datos iniciales. Al enviar el formulario,
+                podrás revisar el mensaje y continuar por WhatsApp.
+            </p>
+
+            <div class="form-grid">
+
+                <div>
+                    <label for="nombre">Nombre completo *</label>
+                    <input id="nombre" name="nombre" required>
+                </div>
+
+                <div>
+                    <label for="telefono">Teléfono *</label>
+                    <input id="telefono" name="telefono"
+                           type="tel" required>
+                </div>
+
+                <div class="campo-completo">
+                    <label for="vehiculo">Vehículo de interés *</label>
+                    <select id="vehiculo" name="vehiculo" required>
+                        <option value="">Selecciona un vehículo</option>
+                        <option>Carguero Agrícola 6×6</option>
+                        <option>Cuatrimoto Agrícola Bull300</option>
+                        <option>Cuatrimoto Agrícola Trepador R10</option>
+                        <option>Otro vehículo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="ciudad">Ciudad *</label>
+                    <input id="ciudad" name="ciudad" required>
+                </div>
+
+                <div>
+                    <label for="departamento">Departamento *</label>
+                    <input id="departamento" name="departamento" required>
+                </div>
+
+                <div class="campo-completo">
+                    <label for="direccion">Dirección *</label>
+                    <input id="direccion" name="direccion" required>
+                </div>
+
+                <div>
+                    <label for="ingresos">Ingresos mensuales (COP) *</label>
+                    <input id="ingresos" name="ingresos"
+                           type="number" min="0" required>
+                </div>
+
+                <div>
+                    <label for="gastos">Gastos mensuales (COP) *</label>
+                    <input id="gastos" name="gastos"
+                           type="number" min="0" required>
+                </div>
+
+            </div>
+
+            <div class="aviso">
+                Por seguridad, no solicites ni envíes fotografías de
+                documentos de identidad mediante este formulario.
+                Un asesor deberá indicarte el canal seguro autorizado
+                para continuar el estudio crediticio.
+                Los datos escritos se incluirán en el mensaje de WhatsApp
+                que tú decidas enviar.
+            </div>
+
+            <button type="submit" class="boton" style="width:100%;">
+                Continuar por WhatsApp
+            </button>
+        </form>
+
+    </div>
+</section>
+
+<section id="nosotros">
+    <div class="contenedor nosotros-grid">
+
+        <img src="images/logo-atv-rider.jpg"
+             alt="Logotipo de Cuatrimotos ATV Rider">
+
+        <div>
+            <span class="etiqueta">CONÓCENOS</span>
+
+            <h2>Potencia, Calidad y Aventura en Cada Terreno</h2>
+
+            <p>
+                En Cuatrimotos ATV Rider ofrecemos vehículos
+                todoterreno y soluciones para diferentes actividades.
+                Nuestro objetivo es orientarte para encontrar
+                el modelo adecuado para tus necesidades.
+            </p>
+
+            <p>
+                <strong>Dirección:</strong><br>
+                Siberia, Parque Agroindustrial de Occidente,
+                Calle 80 km 1.5, Bodega 1, Local 58.
+            </p>
+
+            <p>
+                <strong>NIT informado:</strong> 901808803
+            </p>
+
+            <p>
+                <strong>Envíos:</strong> cobertura nacional.
+                Consulta los costos y tiempos de entrega para tu municipio.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section id="contacto">
+    <div class="contenedor">
+
+        <div class="contacto">
+            <div>
+                <span c
